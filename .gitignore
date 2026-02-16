@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Airflow logs
+logs/
+
+# Environment variables
+.env
+
+# OS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# CSV descargados
+dags/files/*.csv
