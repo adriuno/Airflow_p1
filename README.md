@@ -13,6 +13,27 @@ Este proyecto implementa un pipeline de datos usando Apache Airflow para procesa
 - Docker Compose
 - Git
 
+## Configuración Inicial
+
+### Variables de Entorno
+
+Este proyecto usa variables de entorno para gestionar información sensible de forma segura. **Nunca subas el archivo `.env` a GitHub**.
+
+1. Copia el archivo de ejemplo:
+```bash
+cp .env.example .env
+```
+
+2. Edita el archivo `.env` y actualiza los valores:
+   - `AIRFLOW__CORE__FERNET_KEY`: Genera una nueva clave con:
+     ```bash
+     python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+     ```
+   - Cambia todas las contraseñas por valores seguros
+   - Ajusta `AIRFLOW_UID` si estás en Linux (ejecuta `id -u`)
+
+3. El archivo `.env` está en `.gitignore` para proteger tus credenciales
+
 ## Cómo ejecutar
 
 ### 1. Levantar los servicios
